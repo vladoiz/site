@@ -1,0 +1,192 @@
+{% load static wagtailcore_tags  %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% wagtail_site as current_site %}
+                {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+
+        {# Global stylesheets #}
+        <!-- Template Main CSS File 
+        <link rel="stylesheet" type="text/css" href="{% static 'css/Proj.css' %}">-->
+        
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+        <link href="{% static '/css/aos/aos.css' %}" rel="stylesheet">
+        <link href="{% static '/css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static '/css/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+        <link href="{% static 'img/favicon.png' %}" rel="icon">
+        <link href="{% static '/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static '/css/mysite.css' %}" rel="stylesheet">
+
+        {% block extra_css %}
+      
+        {% endblock %}
+    </head>
+
+    <body>
+          <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center">
+
+      <!--<h1 class="logo me-auto"><a href="index.html">КТС</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+     <!--<a href="index.html" class="logo me-auto"><img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" data-aos="fade-up"></a>-->
+      
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="/">Главная</a></li>
+          <li class="nav-link dropdown"><a href="/sveden/common"><span>Сведения об образовательной организации</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/sveden/common">Основные сведения</a></li>
+              <li><a href="/sveden/struct">Структура и органы управления образовательной организацией</a></li>
+              <li><a href="/sveden/document">Документы</a></li>
+              <li><a href="/sveden/education">Образование</a></li>
+              <li><a href="/sveden/edustandarts">Образовательные стандарты и требования</a></li>
+              <li><a href="/sveden/employees">Руководство. Педагогический (научнопедагогический) состав</a></li>
+              <li><a href="/sveden/objects">Материально-техническое обеспечение и оснащённость образовательного процесса</a></li>
+              <li><a href="/sveden/grants">Стипендии и меры поддержки обучающихся</a></li>
+              <li><a href="/sveden/paid_edu">Платные образовательные услуги</a></li>
+              <li><a href="/sveden/budget">Финансово-хозяйственная деятельность</a></li>
+              <li><a href="/sveden/vacant">Вакантные места для приема (перевода) обучающихся</a></li>
+              <li><a href="/sveden/ovz">Доступная среда</a></li>
+              <li><a href="/sveden/inter">Международное сотрудничество</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="/blog">Новости</a></li>
+          <li><a class="nav-link scrollto" href="/abiturientu">Абитуриенту</a></li>
+          <li><a class="nav-link scrollto " href="/student">Студенту</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'search' %}">Поиск</a></li>
+        </ul>
+        <i class="bi mobile-nav-toggle bi-list"></i>
+      </nav><!-- .navbar -->
+      
+      <div class="social-links">
+        <a href="https://vk.com/ktskursk" class="vk" title="Группа в Vk" target="blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+        <a href="https://tglink.ru/WeKTS_bot" class="telegram" title="Бот в телеграмме" target="blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+        <a href="#" id="specialButton" title="Версия для слабовидящих" lass="instagram"><i class="bi bi-eye-fill"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+        {% block content %}
+        {% endblock %}
+
+        <footer id="footer" class="section-bg">
+            <div class="footer-top">
+              <div class="container">
+        
+                <div class="row">
+        
+                  <div class="col-lg-6">
+        
+                    <div class="row">
+        
+                      <div class="col-sm-6">
+        
+                        <div class="footer-info">
+                          <p><a href="/" class="logo me-auto"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid" data-aos="fade-up" style="width: 50%; height: 50%;"></a>
+                          </p>
+                        </div>        
+                      </div>
+        
+                      <div class="col-sm-6">
+                        <div class="footer-links">
+                          <h4>Полезные ссылки</h4>
+                          <ul>
+                            <li><a href="/">Главная</a></li>
+                            <li><a href="/sveden">Сведения об образовательной организации</a></li>
+                            <li><a href="/blog">Новости</a></li>
+                            <li><a href="/abiturientu">Абитуриенту</a></li>
+                            <li><a href="/student">Студенту</a></li>    
+                          </ul>
+                        </div>
+        
+                        
+        
+                      </div>
+        
+                    </div>
+        
+                  </div>
+        
+                  <div class="col-lg-6">
+                        <div class="footer-links">
+                          <h4>Контакты</h4>
+                          <p>
+                            г. Курск <br>
+                            ул. Софьи Перовской, д.16<br>
+                            305001 <br>
+                            <strong>Телефон:</strong><a href="tel:+74712540922"> +7 (4712) 54-09-22</a><br>
+                            <strong>Email:</strong><a href="mailto:pu4kurks@mail.ru"> pu4kurks@mail.ru</a> <br>
+                          </p>
+                        </div>
+        
+                        <div class="social-links">
+                          <a href="https://vk.com/ktskursk" class="vk" title="Группа в Vk" target="blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                          <a href="https://tglink.ru/WeKTS_bot" class="telegram" title="Бот в telegram" target="blank"><i class="bi bi-telegram"></i></a>
+                          <a href="/contact" class="linkedin"target="blank" title="Задать вопрос"><i class="bi bi-question-circle"></i></a>
+                          <a href="http://kts-moodle.ru/" class="instagram" title="ИИС moodle"target="blank"><i><img src="{% static 'img/moodle.png' %}" style="height: 28px; width: 28px;" ></i></a>
+                        </div>
+                        <br>
+                     <!--<div class="form">
+        
+                      <a href="/contact"><button class="contact" title="Задать вопрос">Задать вопрос <i class="bi bi-patch-question-fill"></i></button></a></div>
+                    
+        
+                    </div>-->
+        
+                  </div>
+        
+                </div>
+        
+              </div>
+            </div>
+        
+            <div class="container">
+              <div class="copyright">
+                &copy; <strong>ОБПОУ "Курский техникум связи". </strong> При использовании материалов сайта письменное разрешение администрации обязательно!
+              </div>
+            </div>
+          </footer><!-- End  Footer -->
+        
+          <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        
+
+        {# Global javascript #}
+        <script src="{%  static '/js/purecounter/purecounter.js' %}"></script>
+        <script src="{%  static '/js/aos/aos.js' %}"></script>
+        <script src="{%  static '/js/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{%  static '/js/glightbox/js/glightbox.min.js' %}"></script>
+        <script src="{%  static '/js/isotope-layout/isotope.pkgd.min.js' %}"></script>
+        <script src="{%  static '/js/swiper/swiper-bundle.min.js' %}"></script>
+        <script src="{%  static '/js/main.js' %}"></script>
+        
+        <!-- Connect specialversion-->
+        <script src="https://lidrekon.ru/slep/js/jquery.js"></script>
+        <script src="https://lidrekon.ru/slep/js/uhpv-full.min.js"></script>
+        
+        {% block extra_js %}
+       
+        
+        {% endblock %}
+
+
+    
+      </main><!-- End #main -->
+    </body>
+</html>
